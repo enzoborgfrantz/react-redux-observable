@@ -26,3 +26,6 @@ Boilerplate Project for React.
 
 #### Testing
 > Jest
+
+#### CSS
+> CSS in JS using styled-components
