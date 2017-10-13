@@ -1,11 +1,11 @@
 import styled from 'styled-components';
 import React from 'react';
 import { rotate360, fade, glow } from '../styles/animations';
-import { purple, cyan, white } from '../styles/colors';
+import { burgandy, cyan, white } from '../styles/colors';
 
 const SwirlyBoiContainer = styled.div`
   width: 150px;
-  height: 150px;
+  min-height: 150px;
   position: relative;
   display: flex;
   justify-content: center;
@@ -34,9 +34,9 @@ const SwirlyBoiBase = styled(Circle)`
 
 export default ({ children }) => (
   <SwirlyBoiContainer>
-    <SwirlyBoiBase size={100} color={purple} width={10} animation={`${rotate360} 4s linear infinite, ${fade} 1.5s alternate infinite;`} />
+    <SwirlyBoiBase size={100} color={burgandy} width={10} animation={`${rotate360} 4s linear infinite, ${fade} 1.5s alternate infinite;`} />
     <SwirlyBoiBase size={80} color={cyan} width={8} animation={`${rotate360} 2s linear infinite, ${glow} 3s alternate infinite;`} />
-    <Circle size={70} color={white} width={1} />
+    <Circle size={60} color={white} width={1} />
     {children}
   </SwirlyBoiContainer>
 );

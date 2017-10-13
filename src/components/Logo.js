@@ -6,9 +6,7 @@ import SwirlyBoi from './SwirlyBoi';
 const Title = styled.h1`
   font-size: 22px;
   font-family: Raleway;
-  transition: all 0.35s ease-in;
   margin: 0;
-
 `;
 
 const SubTitle = styled(Title)`

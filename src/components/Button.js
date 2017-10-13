@@ -1,12 +1,12 @@
 import styled from 'styled-components';
-import { purpleWithOpacity, white } from '../styles/colors';
+import { burgandyWithOpacity, white } from '../styles/colors';
 import { desktopWidth } from '../styles/mediaQueries';
 
 export default styled.button`
   appearance: none;
   background-color: transparent;
   color: ${white};
-  border: 2px solid ${purpleWithOpacity(0.7)};
+  border: 2px solid ${burgandyWithOpacity(0.7)};
   border-radius: 5px;
   font-family: Raleway;
   font-weight: 400;
@@ -23,10 +23,10 @@ export default styled.button`
   &:hover {
     transition: border-color .25s ease-in;
     cursor: pointer;
-    border-color: ${purpleWithOpacity(1)}
+    border-color: ${burgandyWithOpacity(1)}
   }
 
   &:active {
-    border-color: ${purpleWithOpacity(0.35)}
+    border-color: ${burgandyWithOpacity(0.35)}
   }
 `;
