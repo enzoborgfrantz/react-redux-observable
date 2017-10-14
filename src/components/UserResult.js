@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 import FontAwesome from 'react-fontawesome';
-import { white, silver, whiteWithOpacity, burgandy, navyLight } from '../styles/colors';
+import { cyanWithOpacity, silver, navyLight } from '../styles/colors';
 
 const UserResult = styled.div`
   width: 100%;
@@ -28,22 +28,50 @@ const Avatar = styled.div`
   opacity: 0.65;
 `;
 
-const Text = styled.div`
-  padding-left: 5px;
-  font-size: 22px;
+const Text = styled.span`
+  font-size: 20px;
   font-family: Raleway;
   color: ${silver};
 `;
 
-const LocationIcon = styled(FontAwesome)`
+const SmallText = styled.span`
+  font-family: Raleway;
+  font-size: 14px;
   color: ${silver};
 `;
 
-export default ({ avatar, username, ...props }) => (
+const Icon = styled(FontAwesome)`
+  color: ${cyanWithOpacity(0.75)};
+  padding-right: 5px;
+`;
+
+const UserDetails = styled.div`
+  display: flex;
+  padding-left: 5px;
+  flex-direction: column;
+  justify-content: space-between;
+`;
+
+const TextWithIcon = ({ text, iconName, style }) => (
+  <span style={style}>
+    <Icon name={iconName} />
+    <SmallText>{text}</SmallText>
+  </span>
+);
+
+export default ({ avatar, username, name = 'Enzo Borg Frantz', location, company = 'GoEuro', bio = 'I write code for money', ...props }) => (
   <UserResult {...props}>
     <Avatar avatar={avatar} />
-    <Text>{username}</Text>
-    <LocationIcon name={'map-marker'} /> 
-    <FontAwesome name="fa-map-marker " style={{ color: white, before: { content: '\f185' } }} size="2x">hl</FontAwesome>
+    <UserDetails>
+      <div>
+        <Text style={{ color: cyanWithOpacity(0.75) }}>{username}</Text>
+        <Text style={{ paddingLeft: '5px' }}>{name}</Text>
+      </div>
+      <div>
+        <TextWithIcon text={company} iconName="briefcase" />
+        <TextWithIcon style={{ paddingLeft: '10px' }} text={location} iconName="map-marker" />
+        <TextWithIcon style={{ paddingLeft: '10px' }} text={bio} iconName="quote-left" />
+      </div>
+    </UserDetails>
   </UserResult>
 );

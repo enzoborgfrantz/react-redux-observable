@@ -1,7 +1,8 @@
 import styled from 'styled-components';
 import React from 'react';
-
-import SwirlyBoi from './SwirlyBoi';
+import { SwirlyBoi, SwirlyBoi75, SwirlyBoiContainer } from './SwirlyBoi';
+import { rotate360, fade, glow } from '../styles/animations';
+import { burgandy, cyan, white } from '../styles/colors';
 
 const Title = styled.h1`
   font-size: 22px;
@@ -26,10 +27,13 @@ const LogoTitle = styled.div`
 `;
 
 export default () => (
-  <SwirlyBoi>
+  <SwirlyBoiContainer width={150} height={150}>
+    <SwirlyBoi75 size={100} color={burgandy} width={10} animation={`${rotate360} 4s linear infinite, ${fade} 1.5s alternate infinite;`} />
+    <SwirlyBoi75 size={80} color={cyan} width={8} animation={`${rotate360} 2s linear infinite, ${glow} 3s alternate infinite;`} />
+    <SwirlyBoi size={60} color={white} width={1} />
     <LogoTitle>
       <Title>Redux</Title>
       <SubTitle>& RxJS</SubTitle>
     </LogoTitle>
-  </SwirlyBoi>
+  </SwirlyBoiContainer>
 );

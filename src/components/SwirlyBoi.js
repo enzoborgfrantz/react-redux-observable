@@ -1,11 +1,9 @@
 import styled from 'styled-components';
 import React from 'react';
-import { rotate360, fade, glow } from '../styles/animations';
-import { burgandy, cyan, white } from '../styles/colors';
 
-const SwirlyBoiContainer = styled.div`
-  width: 150px;
-  min-height: 150px;
+const SwirlyBoiContainerStyle = styled.div`
+  width: ${props => props.width}px;
+  min-height: ${props => props.height}px;
   position: relative;
   display: flex;
   justify-content: center;
@@ -15,7 +13,7 @@ const SwirlyBoiContainer = styled.div`
   }
 `;
 
-const Circle = styled.div`
+const SwirlyBoiStyle = styled.div`
   position: absolute;
   width: ${props => props.size}%;
   height: ${props => props.size}%;
@@ -27,16 +25,26 @@ const Circle = styled.div`
   animation: ${props => props.animation};
 `;
 
-const SwirlyBoiBase = styled(Circle)`
-  border-left-color: transparent;
-  border-right-color: transparent;
+export const SwirlyBoi = ({ className, size, color, width, animation }) => (
+  <SwirlyBoiStyle
+    size={size}
+    color={color}
+    width={width}
+    animation={animation}
+    className={className}
+  />);
+
+export const SwirlyBoi75 = styled(SwirlyBoi)`
+   border-left-color: transparent;
 `;
 
-export default ({ children }) => (
-  <SwirlyBoiContainer>
-    <SwirlyBoiBase size={100} color={burgandy} width={10} animation={`${rotate360} 4s linear infinite, ${fade} 1.5s alternate infinite;`} />
-    <SwirlyBoiBase size={80} color={cyan} width={8} animation={`${rotate360} 2s linear infinite, ${glow} 3s alternate infinite;`} />
-    <Circle size={60} color={white} width={1} />
+export const SwirlyBoi50 = styled(SwirlyBoi)`
+   border-left-color: transparent;
+   border-right-color: transparent;
+`;
+
+export const SwirlyBoiContainer = ({ width, height, children }) => (
+  <SwirlyBoiContainerStyle width={width} height={height}>
     {children}
-  </SwirlyBoiContainer>
+  </SwirlyBoiContainerStyle>
 );
